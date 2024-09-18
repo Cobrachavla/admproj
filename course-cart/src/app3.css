@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100vh;
   padding: 2px;
-  
+  position: relative; /* Added to ensure .logout positioning is relative to .app */
 }
 
 .logout {
@@ -16,21 +16,94 @@
   border: none;
   cursor: pointer;
 }
+
 .content {
-    display: flex;
-    bottom: 3px;
-    max-height: 75%; 
+  display: flex;
+  flex-direction: row; /* Default for larger screens */
+  bottom: 3px;
+  max-height: 75%;
+  overflow: auto; /* Ensures content is scrollable if it exceeds max-height */
 }
 
 .left-column {
-    width: 40%;
+  width: 40%;
 }
 
 .right-column {
-    width: 60%;
+  width: 60%;
 }
 
 h3 {
   margin-bottom: 15px;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+
+  
+  
+
+  .logout {
+    position: static; 
+    margin-bottom: 10px; 
+  }
+}
+
+/* General button styling */
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Primary action button (e.g., Save, Submit) */
+.button-primary {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.button-primary:hover {
+  background-color: #45a049;
+}
+
+/* Secondary action button (e.g., Edit) */
+.button-secondary {
+  background-color: #008CBA; /* Blue */
+  color: white;
+}
+
+.button-secondary:hover {
+  background-color: #007BB5;
+}
+
+/* Danger button (e.g., Delete) */
+.button-danger {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.button-danger:hover {
+  background-color: #d73833;
+}
+
+/* Disabled button styling */
+.button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Adjust button styles for mobile screens */
+@media (max-width: 768px) {
+  .button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}

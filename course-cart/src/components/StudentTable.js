@@ -1,12 +1,16 @@
 // src/components/StudentTable.js
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './StudentsTable.css'
 
 
 const StudentTable = () => {
   const [students, setStudents] = useState([]);
   const location = useLocation();
+
+useEffect(() => {
+  
   const fetchStudents = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/students');
@@ -19,6 +23,10 @@ const StudentTable = () => {
       console.error('Error fetching students:', error);
     }
   };
+  
+    fetchStudents();
+  }, []);
+
 
   const handleDeleteStudent = async (studentId) => {
     try {
@@ -33,11 +41,7 @@ const StudentTable = () => {
       console.error('Error deleting student:', error);
     }
   };
-
-  useEffect(() => {
-    fetchStudents();
-  }, []);
-
+  
   return (
     <div className="app">
       <header>
@@ -77,6 +81,13 @@ const StudentTable = () => {
           </tbody>
         </table>
       </div>
+       <div className="verification-container">
+          <Link to="/admin-dashboard">
+             <button className="verification-button">
+			  back
+			</button>
+          </Link>
+          </div>
     </div>
   );
 };

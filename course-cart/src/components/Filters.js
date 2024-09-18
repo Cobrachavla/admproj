@@ -1,40 +1,38 @@
 import React, { useState } from 'react';
 import './Filters.css';
 
-const Filters = ({ branches, districts, onApplyFilters, onResetFilters }) => {
-  const [selectedBranches, setSelectedBranches] = useState([]);
-  const [selectedDistricts, setSelectedDistricts] = useState([]);
+const Filters = ({ branches = [], districts = [], onApplyFilters, onResetFilters }) => {
+  const [selectedBranch, setSelectedBranch] = useState('');
+  const [selectedDistrict, setSelectedDistrict] = useState('');
 
   const handleBranchChange = (e) => {
-    const value = Array.from(e.target.selectedOptions, option => option.value);
-    setSelectedBranches(value);
+    setSelectedBranch(e.target.value);
   };
 
   const handleDistrictChange = (e) => {
-    const value = Array.from(e.target.selectedOptions, option => option.value);
-    setSelectedDistricts(value);
+    setSelectedDistrict(e.target.value);
   };
 
   const handleApplyFilters = () => {
-    onApplyFilters(selectedBranches, selectedDistricts);
+    onApplyFilters([selectedBranch], [selectedDistrict]);
   };
 
   const handleResetFilters = () => {
-    setSelectedBranches([]);
-    setSelectedDistricts([]);
+    setSelectedBranch('');
+    setSelectedDistrict('');
     onResetFilters();
   };
 
   return (
-    <div className='filter'>
+    <div className="filter">
       <div id="filtercontent">
         <label htmlFor="branches">Branches:</label>
         <select
           id="branches"
-          multiple
-          value={selectedBranches}
+          value={selectedBranch}
           onChange={handleBranchChange}
         >
+          <option value="">Select Branch</option>
           {branches.map((branch, index) => (
             <option key={index} value={branch}>
               {branch}
@@ -47,10 +45,10 @@ const Filters = ({ branches, districts, onApplyFilters, onResetFilters }) => {
         <label htmlFor="districts">Districts:</label>
         <select
           id="districts"
-          multiple
-          value={selectedDistricts}
+          value={selectedDistrict}
           onChange={handleDistrictChange}
         >
+          <option value="">Select District</option>
           {districts.map((district, index) => (
             <option key={index} value={district}>
               {district}

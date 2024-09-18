@@ -1,22 +1,14 @@
 // src/components/UserInfo.js
 import React, { useState, useEffect } from 'react';
-import Purchased from './Purchased.js';
-import './UserInfo.css';
+import Purchased from './Purchased.js'
 
-const UserInfo = () => {
-  const [user, setUser] = useState({});
+const UserInfo = ({ user }) => {
   const [purchases, setPurchases] = useState([]);
-
+  
   useEffect(() => {
-    // Fetch user from localStorage
-    const loggedInUser = localStorage.getItem('user');
-    if (loggedInUser) {
-      setUser(JSON.parse(loggedInUser));
-    }
-    
     const fetchPurchases = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/purchases');
+        const response = await fetch(`http://localhost:5000/api/purchases?userId=${user._id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -27,22 +19,23 @@ const UserInfo = () => {
       }
     };
     fetchPurchases();
+    
   }, []);
-
+  
   return (
     <div>
-      {user && (
-        <>
-          <h2>Welcome {user.name}</h2>
-          <p>Degree: {user.course}</p>
-          <p>Email: {user.email}</p>
-        </>
-      )}
-      <div>
-        <Purchased boughtCourses={purchases} />
-      </div>
+      <h2>Welcome {user.name}</h2>
+      <p>Degree: {user.course}</p>
+      <p>Email: {user.email}</p>
+	   <div className="purchases">
+            <Purchased
+              boughtCourses={purchases}
+            />
+        </div>
+      {/* Add more user info as needed */}
     </div>
   );
 };
 
 export default UserInfo;
+

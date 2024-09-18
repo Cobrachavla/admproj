@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const AddCourse = () => {
   const [showForm, setShowForm] = useState(false);
@@ -7,13 +7,27 @@ const AddCourse = () => {
     description: '',
     branch: '',
     district: '',
-    cost: '',
-    intake: 0,
-    cutoff: 0,
-    count: 0
+    cost: 0, // Initialize as integer
+    intake: 0, // Initialize as integer
+    cutoff: 0, // Initialize as integer
+    college: '', // Added college field
+    count: 0 // Initialize count to 0
   });
+  const [userId, setUserId] = useState(null);
 
-  // form visibility ko toggle
+  // Retrieve the logged-in user's college and ID from localStorage
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setFormData(prevData => ({
+        ...prevData,
+        college: user.college // Set the college field with logged-in user's college
+      }));
+      setUserId(user._id); // Set the user ID
+    }
+  }, []);
+
+  // Form visibility toggle
   const handleButtonClick = () => {
     setShowForm(!showForm);
   };
@@ -22,40 +36,56 @@ const AddCourse = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: name === 'cost' || name === 'intake' || name === 'cutoff' ? parseInt(value) || 0 : value
     });
   };
 
   // Handler to submit the form data
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('http://localhost:5000/api/add-course', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
 
-    setFormData({
-      title: '',
-      description: '',
-      branch: '',
-      district: '',
-      cost: '',
-      intake: 0,
-      cutoff: 0,
-      count: 0
-    });
-    setShowForm(false);
-    alert("course posted for verification");
+    // Include the user ID in the form data
+    const payload = { ...formData, userId };
+
+    try {
+      const response = await fetch('http://localhost:5000/api/add-course', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload), // Include the user ID in the payload
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add course');
+      }
+
+      // Reset the form
+      setFormData(prevData => ({
+        ...prevData,
+        title: '',
+        description: '',
+        branch: '',
+        district: '',
+        cost: 0, // Reset cost to 0
+        intake: 0, // Reset intake to 0
+        cutoff: 0, // Reset cutoff to 0
+        count: 0 // Reset count to 0
+      }));
+
+      setShowForm(false);
+      alert('Course posted for verification');
+    } catch (error) {
+      console.error('Error adding course:', error);
+      alert('Failed to add course');
+    }
   };
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {!showForm ? (
-        <button 
-          onClick={handleButtonClick} 
+        <button
+          onClick={handleButtonClick}
           style={{
             width: '100px',
             height: '100px',
@@ -73,7 +103,6 @@ const AddCourse = () => {
         </button>
       ) : (
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
-        
           <label>Degree</label>
           <input type="text" name="title" value={formData.title} onChange={handleInputChange} required />
 
@@ -88,14 +117,20 @@ const AddCourse = () => {
 
           <label>Cost</label>
           <input type="number" name="cost" value={formData.cost} onChange={handleInputChange} required />
-          
-          <label>intake</label>
+
+          <label>Intake</label>
           <input type="number" name="intake" value={formData.intake} onChange={handleInputChange} required />
-          
-          <label>minimum cutoff</label>
+
+          <label>Minimum Cutoff</label>
           <input type="number" name="cutoff" value={formData.cutoff} onChange={handleInputChange} required />
-          
-          <button type="submit" style={{ marginTop: '10px', padding: '10px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+
+          {/* Display the college field but make it read-only */}
+          <label>College</label>
+          <input type="text" name="college" value={formData.college} readOnly />
+
+          <button
+            type="submit"
+            style={{ marginTop: '10px', padding: '10px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
             Add Course
           </button>
         </form>
@@ -105,4 +140,3 @@ const AddCourse = () => {
 };
 
 export default AddCourse;
-

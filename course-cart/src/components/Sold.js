@@ -3,11 +3,8 @@ import '../purchasespopup.css';
 
 const Sold = ({ Sold }) => {
   const [showModal, setShowModal] = useState(false);
- 
-
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
-
 
   return (
     <div>

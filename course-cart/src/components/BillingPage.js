@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../billing.css';
 
-const BillingPage = ({ user }) => {
+const BillingPage = () => {
   const [cart, setCart] = useState([]);
-  const [showBreakdown, setShowBreakdown] = useState(false);
-
-  const totalCost = cart.reduce((total, course) => total + course.cost, 0);
+  const totalCost = cart.reduce((total, course) => total + parseFloat(course.cost), 0);
   const platformFee = 50;
-  const gst = (12 / 100) * totalCost;
+  const gst = (12/100)*totalCost;
+  const [showBreakdown, setShowBreakdown] = useState(false);
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -24,69 +23,78 @@ const BillingPage = ({ user }) => {
       }
     };
     fetchCart();
-  }, []);
-
+  }, []); 
+  
   const handleRemoveFromCart = async (courseId) => {
     try {
-      const response = await fetch('http://localhost:5000/api/cart', {
+      const response = await fetch('http://localhost:5000/api/cart', { 
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ courseId }),
       });
+      if (!response.ok) {
+        console.error(`Failed to remove item: ${response.status}`);
+        return;
+      }
       const updatedCart = await response.json();
+      console.log("Updated cart after removal:", updatedCart); // Ensure the cart is updated correctly
       setCart(updatedCart);
     } catch (error) {
       console.error('Error removing from cart:', error);
     }
   };
 
-  const handleBuyNow = async () => {
+  const handleBuyNow = (cart) => {
+    const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
-      console.log('User is not set:', user);
-      alert('User not logged in');
+      alert('User not logged in.');
       return;
     }
-
     const invtotal = totalCost + platformFee + gst;
     const num_c = cart.length - 1;
-    let invoice;
-
+    let invoice = '';
     if (num_c === 0) {
-      invoice = `paid ${invtotal} for this course on XX/XX/XX`;
+      invoice = `Paid ${invtotal} Rs for this course on XX/XX/XX`;
     } else if (num_c === 1) {
-      invoice = `paid ${invtotal} for this course and ${num_c} other on XX/XX/XX`;
+      invoice = `Paid ${invtotal} Rs for this course and 1 other on XX/XX/XX`;
     } else {
-      invoice = `paid ${invtotal} for this course and ${num_c} others on XX/XX/XX`;
+      invoice = `Paid ${invtotal} Rs for this course and ${num_c} others on XX/XX/XX`;
     }
-
-    console.log('Preparing to send data:', { user, courses: cart, invoice });
-
-    try {
-      const response = await fetch('http://localhost:5000/api/purchasesp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ user, courses: cart, invoice }),
+    // Send purchase request to the backend
+    fetch('http://localhost:5000/api/purchasesp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId: user._id, // Send user ID with the purchase request
+        cart,
+        invoice,
+      }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(() => {
+        alert('Purchase successful!');
+        setCart([]); // Clear the cart after the purchase is confirmed
+      })
+      .catch(error => {
+        console.error('Error making purchase:', error);
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      alert('Purchase successful!');
-      setCart([]); // Clear the cart after purchase
-    } catch (error) {
-      console.error('Error processing purchase:', error);
-    }
   };
-
+  
+  
+  
   const handleBreakdown = () => {
     setShowBreakdown(!showBreakdown);
   };
-
+  
   return (
     <div className="billing-page">
       <h2 className="billing-page-title">Your Cart</h2>
@@ -105,15 +113,17 @@ const BillingPage = ({ user }) => {
         )}
       </div>
       <div className="billing-summary">
-        <h3 className="total-cost">Total: {totalCost + platformFee + gst} Rs</h3>
+        {totalCost>0?<h3 className="total-cost">Total: {totalCost+platformFee+gst} Rs</h3>: <h3 className="total-cost">Go back to course page</h3>}
         <button className="breakdown-btn" onClick={handleBreakdown} disabled={cart.length === 0}>
           Detailed Bill
         </button>
-        <button className="buy-now-btn" onClick={handleBuyNow} disabled={cart.length === 0}>
+        <button className="buy-now-btn" onClick={() => handleBuyNow(cart)} disabled={cart.length === 0}>
           Buy Now
         </button>
         <Link to="/dashboard">
-          <button className="go-to-dashboard">Back to Dashboard</button>
+          <button className="go-to-dashboard">
+            Back to Dashboard
+          </button>
         </Link>
       </div>
       
@@ -128,8 +138,10 @@ const BillingPage = ({ user }) => {
           </div>
         </div>
       )}
+      
     </div>
   );
 };
 
 export default BillingPage;
+

@@ -12,8 +12,8 @@
 
 /* Enhanced CourseCard styling */
 .course-card {
-  width: 320px; /* Adjust width as needed */
-  padding: 20px;
+  width: 280px; /* Reduced width */
+  padding: 16px; /* Slightly reduced padding */
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -22,6 +22,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
+
 
 /* Add hover effect to the CourseCard */
 .course-card:hover {

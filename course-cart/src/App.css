@@ -3,10 +3,9 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh; /* Ensures full height for scrolling */
   box-sizing: border-box;
   background-color: #fff3e0; /* Light orange background */
-  overflow-y: hidden;
 }
 
 .row {
@@ -44,7 +43,6 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  overflow-y: auto;
 }
 
 .filters {
@@ -57,7 +55,6 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
 }
 
 .courses {
@@ -65,8 +62,7 @@
   flex-wrap: wrap;
   flex: 1;
   gap: 20px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
   padding-left: 20px;
 }
 
@@ -114,26 +110,13 @@
 }
 
 /* Responsive styles */
-@media (max-width: 1200px) {
-  .filters {
-    width: 200px;
-  }
-  
-  .course-card {
-    width: 220px;
-    height: auto; /* Adjust height based on content */
-  }
-}
-
 @media (max-width: 992px) {
   .row.main-content {
     flex-direction: column;
-    gap: 10px;
   }
 
   .filters {
     width: 100%;
-    margin-right: 0;
   }
 
   .courses {
@@ -147,34 +130,25 @@
 }
 
 @media (max-width: 768px) {
-  .logout {
-    right: 10px;
-    padding: 8px 16px;
-  }
-
   .filters {
-    width: 100%;
+    width: 80%; 
     margin-bottom: 10px;
   }
 
   .course-card {
     width: 100%;
-    margin-bottom: 15px;
+    height: auto;
+    padding: 20px; /* Increase padding for better spacing */
+    margin-bottom: 20px; /* More space between cards */
+    font-size: 16px; /* Increase text size for better readability */
   }
-}
+  }
+
 
 @media (max-width: 480px) {
-  .logout {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
-
-  .row.user-info {
-    padding: 10px;
-  }
-
-  .filters, .courses {
-    padding: 10px;
+  .filters {
+    width: 100%; /* Full width for smaller screens */
+    padding: 8px; /* Reduce padding to save space */
   }
 
   .course-card {
@@ -185,5 +159,9 @@
 
   .fixed-bottom {
     padding: 5px;
+  }
+
+  .app {
+    overflow-y: auto; /* Ensures full-page scroll on mobile */
   }
 }

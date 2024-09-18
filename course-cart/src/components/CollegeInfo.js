@@ -23,20 +23,21 @@ const UserInfo = ({ user }) => {
     
     const fetchPurchases = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/college-courses-sold');
+        const response = await fetch(`http://localhost:5000/api/college-courses-sold?userId=${user._id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
         setPurchases(data);
       } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error('Error fetching purchases:', error);
       }
     };
-    
-    fetchPosts();
-    fetchPurchases();
-  }, []);
+    if (user && user._id) {
+      fetchPosts();
+      fetchPurchases();
+    }
+  }, [user]);
   
   return (
     <div>
