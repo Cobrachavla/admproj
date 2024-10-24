@@ -1,0 +1,129 @@
+Tag,Programme,University,Level of course,Course Name,Course Type,Intake
+0,COMPUTER APPLICATIONS,"University of Pune, Pune",POST GRADUATE,MASTERS IN COMPUTER APPLICATIONS,Regular Course,120
+0,MANAGEMENT,"University of Pune, Pune",POST GRADUATE,MBA,Regular Course,180
+1,COMPUTER APPLICATIONS,"Bharati Vidyapeeth University, Pune",POST GRADUATE,MASTERS IN COMPUTER APPLICATIONS,Regular Course,60
+1,COMPUTER APPLICATIONS,"Bharati Vidyapeeth University, Pune",UNDER GRADUATE,BCA,Regular Course,120
+2,MANAGEMENT,NOT APPLICABLE,POST GRADUATE DIPLOMA,PGDM,Regular Course,120
+3,MANAGEMENT,Dr. Homi Bhabha State University (HBSU),POST GRADUATE,MASTER IN MARKETING MANAGEMENT,Regular Course,30
+3,MANAGEMENT,Dr. Homi Bhabha State University (HBSU),POST GRADUATE,MASTERS IN FINANCIAL MANAGEMENT,Regular Course,30
+3,MANAGEMENT,Dr. Homi Bhabha State University (HBSU),POST GRADUATE,MMS,Regular Course,180
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ARTIFICIAL INTELLIGENCE & DATA SCIENCE,Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,AUTOMATION AND ROBOTICS,Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,CIVIL ENGINEERING (COMPUTER AIDED STRUCTURAL ENGG),Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,COMPUTER SCIENCE & ENGINEERING,Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ELECTRICAL ENGINEERING,Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,Electronics and Communication (Advanced Communication Technology),Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ELECTRONICS AND COMMUNICATION (VLSI DESIGN),Regular Course,12
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ARTIFICIAL INTELLIGENCE AND DATA SCIENCE,Regular Course,180
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,CIVIL ENGINEERING,Regular Course,60
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,COMPUTER SCIENCE & ENGINEERING,Regular Course,180
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRICAL ENGINEERING,Regular Course,60
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,Electronics and Communication(Advanced Communication Technology),Regular Course,60
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRONICS AND COMPUTER ENGINEERING,Regular Course,120
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRONICS ENGINEERING (VLSI DESIGN AND TECHNOLOGY),Regular Course,60
+4,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,MECHANICAL ENGINEERING,Regular Course,120
+6,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,CIVIL ENGINEERING,Regular Course,60
+6,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,COMPUTER TECHNOLOGY,Regular Course,60
+6,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRICAL ENGINEERING,Regular Course,60
+6,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS AND TELECOMMUNICATION ENGINEERING,Regular Course,60
+6,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,MECHANICAL ENGINEERING,Regular Course,60
+7,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,CIVIL ENGINEERING,Regular Course,30
+7,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRICAL ENGINEERING,Regular Course,30
+7,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,15
+7,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,INFORMATION TECHNOLOGY,Regular Course,30
+7,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,MECHANICAL ENGINEERING,Regular Course,30
+8,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ARTIFICIAL INTELLIGENCE (AI) AND MACHINE LEARNING,Regular Course,60
+8,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,COMPUTER  ENGINEERING,Regular Course,60
+8,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,COMPUTER SCIENCE AND ENGINEERING,Regular Course,60
+8,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS AND COMPUTER ENGINEERING,Regular Course,60
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,COMPUTER ENGINEERING,Regular Course,18
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,THERMAL ENGINEERING,Regular Course,18
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,VLSI AND EMBEDDED SYSTEMS DESIGN,Regular Course,9
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ARTIFICIAL INTELLIGENCE (AI)  AND DATA SCIENCE,Regular Course,60
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,COMPUTER ENGINEERING,Regular Course,120
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,60
+8,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,MECHANICAL ENGINEERING,Regular Course,60
+9,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,COMPUTER ENGINEERING,Regular Course,60
+9,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,30
+10,MANAGEMENT,"University of Pune, Pune",POST GRADUATE,MBA,Regular Course,150
+10,MANAGEMENT,"Savitribai Phule Pune University, Pune",UNDER GRADUATE,BBA,Regular Course,60
+10,MANAGEMENT,"Savitribai Phule Pune University, Pune",UNDER GRADUATE,BMS,Regular Course,120
+12,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,COMPUTER AIDED STRUCTURAL ANALYSIS AND DESIGN,Regular Course,12
+12,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ELECTRIC VEHICLE TECHNOLOGY,Regular Course,6
+12,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,THERMAL ENGINEERING,Regular Course,6
+12,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ARTIFICIAL INTELLIGENCE AND DATA SCIENCE,Regular Course,60
+12,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,COMPUTER SCIENCE AND ENGINEERING,Regular Course,180
+12,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRONICS AND TELECOMMUNICATION ENGINEERING,Regular Course,60
+13,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,60
+14,MANAGEMENT,"Rashtrasant Tukadoji Maharaj Nagpur University, Nagpur",POST GRADUATE,MBA(BUSINESS MANAGEMENT),Regular Course,60
+15,MANAGEMENT,"Swami Ramanand Teerth Marathwada University, Nanded",POST GRADUATE,MBA,Regular Course,120
+15,COMPUTER APPLICATIONS,"Swami Ramanand Teerth Marathwada University, Nanded",POST GRADUATE,MCA,Regular Course,60
+16,MANAGEMENT,"Shivaji University, Kolhapur",POST GRADUATE,MBA,Regular Course,60
+16,MANAGEMENT,"Shivaji University, Kolhapur",UNDER GRADUATE,BBA,Regular Course,120
+16,COMPUTER APPLICATIONS,"Shivaji University, Kolhapur",POST GRADUATE,MCA,Regular Course,60
+16,COMPUTER APPLICATIONS,"Shivaji University, Kolhapur",UNDER GRADUATE,BCA,Regular Course,120
+17,MANAGEMENT,NOT APPLICABLE,POST GRADUATE DIPLOMA,PGDM(BANKING AND FINANCIAL SERVICES),Regular Course,180
+18,MANAGEMENT,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,"MBA (INNOVATION, ENTREPRENEURSHIP AND VENTURE  DEVELOPMENT (IEV))",Regular Course,30
+18,HOTEL MANAGEMENT AND CATERING,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,HOTEL MANAGEMENT AND CATERING TECHNOLOGY,Regular Course,30
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",Integrated,COMPUTER SCIENCE AND ENGINEERING,Dual Degree/Integrated,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,CHEMICAL ENGINEERING,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,COMPUTER ENGINEERING,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,ELECTRICAL ENGINEERING,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,INFORMATION TECHNOLOGY,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,INSTRUMENTATION,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,PETROCHEMICAL ENGINEERING,Regular Course,60
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",DIPLOMA,PLASTIC AND POLYMER ENGINEERING,Regular Course,30
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ARTIFICIAL INTELLIGENCE AND DATA SCIENCE,Regular Course,18
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,CHEMICAL ENGINEERING,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,COMPUTER ENGINEERING,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,CYBER SECURITY,Regular Course,18
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,Electronics and Communication (Advanced Communication Technology),Regular Course,18
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ELECTRONICS AND COMMUNICATION (VLSI DESIGN),Regular Course,18
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ELECTRONICS AND TELECOMMUNICATION ENGINEERING,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,ENVIRONMENT ENGINEERING,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,MANUFACTURING ENGINEERING,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,POWER SYSTEMS,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,REMOTE SENSING AND GIS,Regular Course,18
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,THERMAL AND FLUID ENGINEERING,Regular Course,16
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,CHEMICAL ENGINEERING,Regular Course,54
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,CIVIL ENGINEERING,Regular Course,54
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,COMPUTER ENGINEERING,Regular Course,54
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRICAL ENGINEERING,Regular Course,54
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRONICS AND TELECOMMUNICATION ENGINEERING,RegionalLang,30
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,ELECTRONICS ENGINEERING (VLSI DESIGN AND TECHNOLOGY),Regular Course,30
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,INFORMATION TECHNOLOGY,Regular Course,54
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,MECHANICAL ENGINEERING,Regular Course,54
+18,ENGINEERING AND TECHNOLOGY,"Dr. Babasaheb Ambedkar Technological University, Lonere",UNDER GRADUATE,PETROCHEMICAL ENGINEERING,Regular Course,54
+18,COMPUTER APPLICATIONS,"Dr. Babasaheb Ambedkar Technological University, Lonere",POST GRADUATE,MCA,Regular Course,30
+19,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ARTIFICIAL INTELLIGENCE (AI) AND MACHINE LEARNING,Regular Course,30
+19,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS ENGINEERING,Regular Course,60
+19,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,INFORMATION TECHNOLOGY,Regular Course,60
+19,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,MECHANICAL ENGINEERING,Regular Course,90
+20,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS & COMMUNICATION ENGG,Regular Course,60
+20,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,FOOD TECHNOLOGY,Regular Course,20
+21,MANAGEMENT,"Sant Gadge Baba Amravati University, Amravati",POST GRADUATE,MBA,Regular Course,60
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",POST GRADUATE,ADVANCED MANUFACTURING AND MECHANICAL SYSTEMS DESIGN,Regular Course,18
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",POST GRADUATE,COMPUTER ENGINEERING,Regular Course,18
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",POST GRADUATE,DIGITAL ELECTRONICS,Regular Course,18
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",POST GRADUATE,ELECTRICAL POWER SYSTEM,Regular Course,18
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",UNDER GRADUATE,COMPUTER SCIENCE AND ENGINEERING,Regular Course,60
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",UNDER GRADUATE,ELECTRICAL ENGINEERING (ELECTRONICS AND POWER),Regular Course,60
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",UNDER GRADUATE,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,120
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",UNDER GRADUATE,INFORMATION TECHNOLOGY,Regular Course,60
+21,ENGINEERING AND TECHNOLOGY,"Sant Gadge Baba Amravati University, Amravati",UNDER GRADUATE,MECHANICAL ENGINEERING,Regular Course,60
+22,MANAGEMENT,"SRI BALAJI UNIVERSITY, PUNE",POST GRADUATE,MBA,Regular Course,120
+22,MANAGEMENT,"SRI BALAJI UNIVERSITY, PUNE",POST GRADUATE,MBA(MARKETING MANAGEMENT),Regular Course,60
+22,MANAGEMENT,"SRI BALAJI UNIVERSITY, PUNE",POST GRADUATE,MBA(PERSONNEL MANAGEMENT AND HUMAN RESOURCE DEVELOPMENT),Regular Course,60
+23,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,CIVIL ENGINEERING,Regular Course,180
+23,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,COMPUTER ENGINEERING,Regular Course,180
+23,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRICAL ENGINEERING,Regular Course,120
+23,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,ELECTRONICS AND TELECOMMUNICATIONS ENGINEERING,Regular Course,180
+23,ENGINEERING AND TECHNOLOGY,"Maharashtra State Board of Technical Education, Mumbai",DIPLOMA,MECHANICAL ENGINEERING,Regular Course,180
+24,MANAGEMENT,"Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",POST GRADUATE,MBA,Regular Course,60
+24,MANAGEMENT,Kavayitri Bahinabai Chaudhari North Maharashtra University Jalgaon,UNDER GRADUATE,BBA,Regular Course,60
+24,COMPUTER APPLICATIONS,KAVAYITRI BAHINABAI CHAUDHARI NORTH MAHARASHTRA UNIVERSITY,UNDER GRADUATE,BCA,Regular Course,100
+25,MANAGEMENT,NOT APPLICABLE,FELLOWSHIP,FELLOW PROGRAM IN MANAGEMENT,Regular Course,20
+25,MANAGEMENT,NOT APPLICABLE,POST GRADUATE DIPLOMA,PGDM,Regular Course,180
+25,MANAGEMENT,NOT APPLICABLE,POST GRADUATE DIPLOMA,PGDM(FINANCIAL MANAGEMENT),Regular Course,60
+25,MANAGEMENT,NOT APPLICABLE,POST GRADUATE DIPLOMA,PGDM(MARKETING),Regular Course,120

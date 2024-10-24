@@ -22,6 +22,7 @@ let usersCollection;
 let filtersCollection;
 let coursesCollection;
 let boughtCoursesCollection;
+let cartCollection;
 let cart = [];
 
 app.use(session({
@@ -47,6 +48,7 @@ async function connectToDB() {
     usersCollection = db.collection('users');
     filtersCollection = db.collection('filters');
     coursesCollection = db.collection('courses');
+    cartCollection = db.collection('cart');
     boughtCoursesCollection = db.collection('boughtCourses');
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
@@ -122,23 +124,74 @@ app.get('/api/courses', async (req, res) => {
     res.status(500).json({ success: false, message: 'Error fetching courses' });
   }
 });
-app.get('/api/cart', (req, res) => {
-  res.status(200).json(cart);
-});
-app.post('/api/cart', (req, res) => {
-  const { course } = req.body;
-  if (!cart.find(item => item._id === course._id)) {
-    cart.push(course);
+app.get('/api/cart', async (req, res) => {
+  try {
+    const userId = req.query.userId; // Adjust this based on your logic
+    const userCart = await cartCollection.findOne({ userId });
+    if (userCart) {
+      res.status(200).json(userCart.cartItems); // Send the cart items to the client
+    } else {
+      res.status(404).json({ message: 'Cart not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    res.status(500).json({ message: 'Server error' });
   }
-  res.status(200).json(cart);
 });
-app.delete('/api/cart', (req, res) => {
-  const { courseId } = req.body; 
-  console.log("Course ID to remove:", courseId); 
-  cart = cart.filter(item => item.id !== courseId);
-  console.log("Updated cart:", cart);
-  res.status(200).json(cart); 
+app.post('/api/cart', async (req, res) => {
+  const { userId, course } = req.body;
+
+  try {
+    // Find the user's cart
+    let userCart = await cartCollection.findOne({ userId });
+
+    // If no cart exists, create a new one
+    if (!userCart) {
+      userCart = { userId, cartItems: [] };
+    }
+
+    // Check if the course is already in the cart
+    const courseExists = userCart.cartItems.find(item => item._id === course._id);
+
+    if (!courseExists) {
+      // Add the course to the cart
+      userCart.cartItems.push(course);
+      await cartCollection.updateOne(
+        { userId },
+        { $set: { cartItems: userCart.cartItems } },
+        { upsert: true } // Create the document if it doesn't exist
+      );
+    }
+
+    res.status(200).json(userCart.cartItems); // Send the updated cart
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
 });
+
+app.delete('/api/cart', async (req, res) => {
+  const { userId, courseId } = req.body;
+  try {
+    const userCart = await cartCollection.findOne({ userId });
+    if (!userCart) {
+      return res.status(404).json({ message: 'Cart not found' });
+    }
+    // Remove the course from the cart
+    const objectIdCourse = new ObjectId(courseId);
+    userCart.cartItems = userCart.cartItems.filter(item => !objectIdCourse.equals(item._id));
+    // Update the cart with the remaining items
+    await cartCollection.updateOne(
+      { userId },
+      { $set: { cartItems: userCart.cartItems } }
+    );
+    res.status(200).json(userCart.cartItems); // Send the updated cart to the client
+  } catch (error) {
+    console.error('Error removing from cart:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 app.get('/api/purchases', async (req, res) => {
   const { userId } = req.query; 
   if (!userId) {
@@ -158,20 +211,27 @@ app.post('/api/purchasesp', async (req, res) => {
     if (!ObjectId.isValid(userId)) {
       return res.status(400).json({ success: false, message: 'Invalid user ID' });
     }
+    
     const userObjectId = new ObjectId(userId);
     const user = await usersCollection.findOne({ _id: userObjectId });
+    
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
-    if (!cart || !Array.isArray(cart) || cart.some(course => typeof course._id !== 'string')) {
+    
+    if (!cart || !Array.isArray(cart) || cart.some(course => !ObjectId.isValid(course._id))) {
       return res.status(400).json({ success: false, message: 'Invalid course data in cart' });
     }
-    const purchaseDetails = await Promise.all(cart.map(async (course) => {
+    
+    const purchaseDetails = [];
+    for (let course of cart) {
       const courseDetails = await coursesCollection.findOne({ _id: course._id });
       if (!courseDetails) {
-        return res.status(404).json({ success: false, message: 'Course not found' });
+        console.error(`Course with ID ${course._id} not found`);
+        continue;
       }
-      return {
+      
+      purchaseDetails.push({
         user: {
           _id: user._id,
           id: user.id,
@@ -198,21 +258,42 @@ app.post('/api/purchasesp', async (req, res) => {
         },
         purchaseDate: new Date(),
         invoice,
-      };
-    }));
+      });
+    }
+    
+    if (purchaseDetails.length === 0) {
+      return res.status(400).json({ success: false, message: 'No valid purchases to save' });
+    }
+
+    // Save purchase details
     const result = await boughtCoursesCollection.insertMany(purchaseDetails);
-    await Promise.all(cart.map(async (course) => {
-      await coursesCollection.updateOne(
-        { _id: course._id },  
-        { $inc: { count: 1 } }  
-      );
-    }));
-    res.status(200).json({ success: true, message: 'Purchase successful', result });
+
+    // Update course count
+    await Promise.all(cart.map(course => 
+      coursesCollection.updateOne(
+        { _id: course._id },
+        { $inc: { count: 1 } } // Increment the count by 1
+      )
+    ));
+
+    // Clear the user's cart after successful purchase
+    const deleteCartResult = await cartCollection.deleteMany({ userId: userId });
+
+    res.status(200).json({ 
+      success: true, 
+      message: 'Purchase successful and cart cleared', 
+      result, 
+      deletedCartItems: deleteCartResult.deletedCount // Optionally send back the count of deleted cart items
+    });
   } catch (error) {
-    console.error('Error saving purchases:', error.message, error.stack);
-    res.status(500).json({ success: false, message: 'Error saving purchases', error: error.message });
+    console.error('Error processing purchase:', error.message, error.stack);
+    if (!res.headersSent) {
+      res.status(500).json({ success: false, message: 'Error processing purchase', error: error.message });
+    }
   }
 });
+
+
 app.get('/api/college-posts', async (req, res) => {
   try {
     const courses = await coursesCollection.find({}).toArray();

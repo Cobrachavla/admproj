@@ -18,7 +18,6 @@ const App = () => {
   useEffect(() => {
     // Load user from local storage
     const storedUser = JSON.parse(localStorage.getItem('user'));
-    console.log('User from localStorage:', storedUser); // Debug log
     if (storedUser) {
       setUser(storedUser);
     } else {
@@ -59,7 +58,7 @@ const App = () => {
 
       const fetchCart = async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/cart');
+          const response = await fetch(`http://localhost:5000/api/cart?userId=${user._id}`);
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
@@ -82,7 +81,7 @@ const App = () => {
           console.error('Error fetching purchases:', error);
         }
       };
-      
+
       fetchCourses();
       fetchCart();
       fetchPurchases();
@@ -136,10 +135,10 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ course }),
+        body: JSON.stringify({ userId: user._id, course }),
       });
       const updatedCart = await response.json();
-      setCart(updatedCart);
+      setCart(updatedCart);  // Update cart with response from server
     } catch (error) {
       console.error('Error adding to cart:', error);
     }
@@ -152,10 +151,10 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ courseId }),
+        body: JSON.stringify({ userId: user._id, courseId }),
       });
       const updatedCart = await response.json();
-      setCart(updatedCart);
+      setCart(updatedCart);  // Update cart state after removing item
     } catch (error) {
       console.error('Error removing from cart:', error);
     }
@@ -182,14 +181,13 @@ const App = () => {
         throw new Error('Error while processing the purchase.');
       }
       const updatedPurchases = await response.json();
-      setPurchases(updatedPurchases); // Update purchases state if needed
-      setCart([]); // Clear the cart after a successful purchase
+      setPurchases(updatedPurchases);  // Update purchases state
+      setCart([]);  // Clear the cart after successful purchase
       alert('Purchase successful!');
     } catch (error) {
       console.error('Error purchasing the course:', error);
     }
   };
-    
 
   const handleLogout = async () => {
     try {
@@ -233,18 +231,18 @@ const App = () => {
           />
         </div>
         <div className="courses">
-          {courses.map((course, index) => (
+          {courses.map((course) => (
             <CourseCard
-            key={index}
-            course={course}
-            isInCart={cart.some(item => item.id === course.id)}
-            isInPurchases={purchases.some(item => 
-              String(item.user.id) === String(user.id) && String(item.course._id) === String(course._id)
-            )}
-            onBuyNow={() => handleBuyNow(course)}
-            onAddToCart={() => handleAddToCart(course)}
-            onRemoveFromCart={() => handleRemoveFromCart(course.id)}
-          />
+              key={course._id}
+              course={course}
+              isInCart={cart.some(item => String(item._id) === String(course._id))}
+              isInPurchases={purchases.some(item => 
+                String(item.course._id) === String(course._id)
+              )}
+              onBuyNow={() => handleBuyNow(course)}
+              onAddToCart={() => handleAddToCart(course)}
+              onRemoveFromCart={() => handleRemoveFromCart(course._id)}  // Use consistent _id
+            />
           ))}
         </div>
       </div>
